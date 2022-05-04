@@ -1,0 +1,37 @@
+.text-container-animations {
+    position: relative;
+    margin: 0px 5px 5px 5px;
+    animation: translateanimation 3s linear infinite;
+}
+
+@keyframes translateanimation {
+    0% {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+
+    5% {
+        transform: translateX(-20%);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translateX(0%);
+        opacity: 7;
+    }
+
+    90% {
+        transform: translateX(0%);
+        opacity: 7
+    }
+
+    95% {
+        transform: translate(50%);
+        opacity: 0
+    }
+
+    100% {
+        transform: translate(50%);
+        opacity: 0
+    }
+}
