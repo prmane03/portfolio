@@ -1,5 +1,4 @@
-var text = ["Software Engineer",
-"Web Developer","Full Stack Developer"];
+var text = ["Web Developer","Full Stack Developer","Software Developer"];
 var counter = 0;
 var inst = setInterval(change, 3030);
 
