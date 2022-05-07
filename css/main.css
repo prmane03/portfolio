@@ -37,7 +37,7 @@
 }
 
 
-@media (min-width: 0px) {  
+@media (min-width: 0px) {
     .about-title {
         /* transform: rotate(-90deg); */
         background-color: #f6ad55;
@@ -45,7 +45,7 @@
         padding: 4PX;
         display: inline-block;
         /* animation: rotateAbout 3s linear infinite; */
-    } 
+    }
 }
 
 @media (min-width: 1024px) {
@@ -55,7 +55,7 @@
         color: white;
         padding: 4PX;
         animation: rotateAbout 3s linear infinite;
-    } 
+    }
 }
 
 
@@ -78,3 +78,64 @@
         transform: rotate(-90deg);
     }
 }
+
+.zoom-in-out-img {
+    animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+        transform: scale(1, 1) translateX(0px) rotate(0deg);
+    }
+
+    10% {
+        transform: scale(0.98, 0.98) translateX(2px) rotate(-2deg);
+    }
+
+    20% {
+        transform: scale(0.96, 0.96) translateX(4px) rotate(-4deg);
+    }
+
+    30% {
+        transform: scale(0.94, 0.94) translateX(6px) rotate(-6deg);
+    }
+
+    40% {
+        transform: scale(0.92, 0.92) translateX(8px) rotate(-8deg);
+    }
+
+    50% {
+        transform: scale(0.90, 0.90) translateX(10px) rotate(-10deg);
+    }
+
+    60% {
+        transform: scale(0.92, 0.92) translateX(8px) rotate(-8deg);
+    }
+
+    70% {
+        transform: scale(0.94, 0.94) translateX(6px) rotate(-6deg);
+    }
+
+    80% {
+        transform: scale(0.96, 0.96) translateX(4px) rotate(-4deg);
+    }
+
+    90% {
+        transform: scale(0.98, 0.98) translateX(2px) rotate(-2deg);
+    }
+
+    100% {
+        transform: scale(1, 1) translateX(0px) rotate(0deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
