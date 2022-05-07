@@ -35,3 +35,46 @@
         opacity: 0
     }
 }
+
+
+@media (min-width: 0px) {  
+    .about-title {
+        /* transform: rotate(-90deg); */
+        background-color: #f6ad55;
+        color: white;
+        padding: 4PX;
+        display: inline-block;
+        /* animation: rotateAbout 3s linear infinite; */
+    } 
+}
+
+@media (min-width: 1024px) {
+    .about-title {
+        transform: rotate(-90deg);
+        background-color: #f6ad55;
+        color: white;
+        padding: 4PX;
+        animation: rotateAbout 3s linear infinite;
+    } 
+}
+
+
+
+
+@keyframes rotateAbout {
+    0% {
+        transform: rotate(-90deg);
+    }
+
+    25% {
+        transform: rotate(-80deg);
+    }
+
+    90% {
+        transform: rotate(-100deg);
+    }
+
+    100% {
+        transform: rotate(-90deg);
+    }
+}
