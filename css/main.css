@@ -80,52 +80,52 @@
 }
 
 .zoom-in-out-img {
-    animation: zoom-in-zoom-out 1s ease infinite;
+    animation: zoom-in-zoom-out 10s ease infinite;
 }
 
 @keyframes zoom-in-zoom-out {
     0% {
-        transform: scale(1, 1) translateX(0px) rotate(0deg);
+        transform: scale(1, 1) translateX(0px);
     }
 
     10% {
-        transform: scale(0.98, 0.98) translateX(2px) rotate(-2deg);
+        transform: scale(0.98, 0.98) translateX(2px);
     }
 
     20% {
-        transform: scale(0.96, 0.96) translateX(4px) rotate(-4deg);
+        transform: scale(0.96, 0.96) translateX(4px);
     }
 
     30% {
-        transform: scale(0.94, 0.94) translateX(6px) rotate(-6deg);
+        transform: scale(0.94, 0.94) translateX(6px);
     }
 
     40% {
-        transform: scale(0.92, 0.92) translateX(8px) rotate(-8deg);
+        transform: scale(0.92, 0.92) translateX(8px);
     }
 
     50% {
-        transform: scale(0.90, 0.90) translateX(10px) rotate(-10deg);
+        transform: scale(0.90, 0.90) translateX(10px);
     }
 
     60% {
-        transform: scale(0.92, 0.92) translateX(8px) rotate(-8deg);
+        transform: scale(0.92, 0.92) translateX(8px);
     }
 
     70% {
-        transform: scale(0.94, 0.94) translateX(6px) rotate(-6deg);
+        transform: scale(0.94, 0.94) translateX(6px);
     }
 
     80% {
-        transform: scale(0.96, 0.96) translateX(4px) rotate(-4deg);
+        transform: scale(0.96, 0.96) translateX(4px);
     }
 
     90% {
-        transform: scale(0.98, 0.98) translateX(2px) rotate(-2deg);
+        transform: scale(0.98, 0.98) translateX(2px);
     }
 
     100% {
-        transform: scale(1, 1) translateX(0px) rotate(0deg);
+        transform: scale(1, 1) translateX(0px);
     }
 }
 
