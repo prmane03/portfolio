@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Load the navigation bar
-    fetch('./components/nav.html')
+    fetch('./pages/components/nav.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('nav-id').innerHTML = data;
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     // Load the footer
-    fetch('./components/footer.html')
+    fetch('./pages/components/footer.html')
         .then(response => response.text())
         .then(data => document.getElementById('footer-id').innerHTML = data);
 
