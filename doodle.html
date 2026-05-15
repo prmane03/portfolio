@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratik Mane - Doodle Portfolio</title>
+    <link rel="stylesheet" href="./css/tailwind.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Fredoka:wght@300;400;600&display=swap');
+
+        * {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #ffeaa7 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .doodle-title {
+            font-family: 'Fredoka One', sans-serif;
+            font-size: 2.5rem;
+            color: #ff006e;
+            text-shadow: 
+                3px 3px 0 #ffbe0b,
+                6px 6px 0 #00d4ff,
+                9px 9px 0 #8338ec;
+            letter-spacing: 2px;
+            animation: doodle-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes doodle-bounce {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        .doodle-character {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff006e 0%, #fb5607 100%);
+            border-radius: 30%;
+            position: relative;
+            animation: doodle-jump 0.6s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(255, 0, 110, 0.4);
+        }
+
+        @keyframes doodle-jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .platform {
+            background: linear-gradient(135deg, #06ffa5 0%, #1dd1a1 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(6, 255, 165, 0.3);
+            position: relative;
+        }
+
+        .platform::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent);
+            border-radius: 50%;
+        }
+
+        .doodle-section {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            border-radius: 30px;
+            margin: 2rem 0;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 3px dashed #ffbe0b;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .doodle-section::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 30px;
+            height: 30px;
+            background: #ff006e;
+            border-radius: 50%;
+            box-shadow: 
+                50px 0 0 #06ffa5,
+                100px 0 0 #00d4ff,
+                150px 0 0 #8338ec;
+        }
+
+        .section-title {
+            font-family: 'Fredoka One', sans-serif;
+            font-size: 1.8rem;
+            color: #ff006e;
+            text-shadow: 2px 2px 0 #ffbe0b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-decoration {
+            font-size: 2rem;
+            animation: icon-float 3s ease-in-out infinite;
+        }
+
+        @keyframes icon-float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .doodle-button {
+            background: linear-gradient(135deg, #ff006e 0%, #fb5607 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 0, 110, 0.3);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Fredoka One', sans-serif;
+        }
+
+        .doodle-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            transform: translate(0, 0);
+            pointer-events: none;
+        }
+
+        .doodle-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 0, 110, 0.5);
+        }
+
+        .doodle-button:active {
+            transform: translateY(-1px);
+        }
+
+        .skill-bubble {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border: 3px solid #ff006e;
+            border-radius: 50%;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+            text-align: center;
+            font-weight: 600;
+            color: #ff006e;
+            box-shadow: 0 5px 15px rgba(255, 0, 110, 0.2);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .skill-bubble:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #ffeaa7 0%, #74b9ff 100%);
+            box-shadow: 0 8px 25px rgba(255, 190, 11, 0.4);
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff006e 0%, #06ffa5 50%, #00d4ff 100%);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 0, 110, 0.2);
+        }
+
+        .nav-doodle {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 4px dashed #ff006e;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-doodle a {
+            color: #ff006e;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-doodle a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #06ffa5;
+            transition: width 0.3s;
+        }
+
+        .nav-doodle a:hover {
+            color: #06ffa5;
+        }
+
+        .nav-doodle a:hover::after {
+            width: 100%;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, #a8edea 0%, #ffeaa7 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #ff006e;
+            box-shadow: 0 5px 15px rgba(255, 0, 110, 0.2);
+        }
+
+        .experience-card h4 {
+            font-family: 'Fredoka One', sans-serif;
+            color: #ff006e;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card p {
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #ff006e 0%, #fb5607 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 1rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(255, 0, 110, 0.3);
+            transition: all 0.3s;
+        }
+
+        .contact-box:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-box i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .floating-shape {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape-circle {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 0, 110, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-square {
+            width: 80px;
+            height: 80px;
+            background: rgba(6, 255, 165, 0.1);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(30px) rotate(10deg); }
+        }
+
+        .doodle-hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.9);
+            border: 3px solid #ff006e;
+            border-radius: 15px;
+            padding: 0.75rem;
+            margin: 0.75rem 0;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 0, 110, 0.3);
+            border-color: #06ffa5;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff006e 0%, #fb5607 100%);
+            border-top: 4px dashed #ffbe0b;
+            color: white;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.5rem;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .social-link:hover {
+            transform: scale(1.2) rotate(10deg);
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Decorations -->
+    <div class="floating-shape" style="top: 10%; right: 5%;"><div class="shape-circle"></div></div>
+    <div class="floating-shape" style="bottom: 20%; left: 5%;"><div class="shape-square"></div></div>
+
+    <!-- Navigation -->
+    <nav class="nav-doodle flex items-center justify-between flex-wrap p-4 sticky top-0 z-50">
+        <div class="flex items-center flex-shrink-0 gap-2">
+            <div class="doodle-character" style="width: 50px; height: 50px;"></div>
+            <span class="doodle-title text-2xl">DOODLE</span>
+        </div>
+        <div class="block lg:hidden">
+            <button class="flex items-center px-3 py-2 border-2 border-pink-500 rounded text-pink-600 hover:text-green-500" onclick="toggleMobileNav()">
+                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                </svg>
+            </button>
+        </div>
+        <div class="w-full hidden lg:block flex-grow lg:flex lg:items-center lg:w-auto" id="navBox">
+            <div class="text-sm lg:flex-grow font-bold">
+                <a href="./singlepage.html" class="block mt-4 lg:inline-block lg:mt-0 mr-6">← BACK</a>
+                <a href="#home" onclick="scrollTo('home')" class="block mt-4 lg:inline-block lg:mt-0 mr-6">HOME</a>
+                <a href="#about" onclick="scrollTo('about')" class="block mt-4 lg:inline-block lg:mt-0 mr-6">ABOUT</a>
+                <a href="#portfolio" onclick="scrollTo('portfolio')" class="block mt-4 lg:inline-block lg:mt-0 mr-6">PORTFOLIO</a>
+                <a href="#contact" onclick="scrollTo('contact')" class="block mt-4 lg:inline-block lg:mt-0">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="py-20 px-4 min-h-screen flex items-center">
+        <div class="max-w-6xl mx-auto w-full">
+            <div class="doodle-hero">
+                <div class="hero-text">
+                    <h1 class="doodle-title text-5xl mb-4">Hi, I'm Pratik Mane</h1>
+                    <div class="h-1 w-24 bg-gradient-to-r from-pink-600 via-green-400 to-blue-400 rounded mb-6"></div>
+                    
+                    <div class="space-y-3 mt-6">
+                        <p style="font-size: 1.3rem; color: #ff006e; font-weight: 600;">Full Stack Developer</p>
+                        <p style="font-size: 1rem; color: #333;">Building awesome web applications and having fun coding!</p>
+                        <p style="font-size: 0.95rem; color: #666;">React • Java • Node.js • MongoDB</p>
+                    </div>
+
+                    <div class="flex gap-3 pt-8 flex-wrap">
+                        <button onclick="scrollTo('portfolio')" class="doodle-button">View My Work</button>
+                        <button onclick="scrollTo('contact')" class="doodle-button">Get in Touch</button>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img src="./img/introImg.png" alt="Pratik" class="max-w-sm zoom-in-out-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="doodle-section">
+                <h2 class="section-title">
+                    <span class="icon-decoration">👨‍💻</span>
+                    ABOUT ME
+                </h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="lg:col-span-1">
+                        <img src="./img/pratik.png" alt="Pratik" class="w-full max-w-xs rounded-3xl shadow-lg">
+                    </div>
+                    <div class="lg:col-span-3 space-y-4">
+                        <p style="color: #333; line-height: 1.8; font-size: 0.95rem;">
+                            I'm a passionate Full Stack Developer with a strong foundation in building robust and scalable web applications. With expertise in both frontend and backend technologies, I create seamless digital experiences that drive business value.
+                        </p>
+                        <p style="color: #333; line-height: 1.8; font-size: 0.95rem;">
+                            My journey in tech has equipped me with the skills to work across the entire development stack, from designing intuitive user interfaces to architecting solid backend systems. I believe in writing clean, maintainable code and following best practices.
+                        </p>
+                        <p style="color: #333; line-height: 1.8; font-size: 0.95rem;">
+                            When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and sharing knowledge with the developer community.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Education & Experience -->
+                <h3 class="section-title mt-8">
+                    <span class="icon-decoration">🎓</span>
+                    EDUCATION & EXPERIENCE
+                </h3>
+
+                <div class="space-y-3">
+                    <div class="experience-card">
+                        <h4>2017 - 2021</h4>
+                        <p><strong>Bachelor's of Technology - Computer Engineering</strong></p>
+                        <p>Satara College of Engineering and Management, Satara</p>
+                    </div>
+
+                    <div class="experience-card" style="background: linear-gradient(135deg, #fed6e3 0%, #74b9ff 100%); border-left-color: #00d4ff;">
+                        <h4>Sept 2021 - Mar 2022</h4>
+                        <p><strong>Web Developer Intern</strong></p>
+                        <p>Wealthrhino Intellivest Services Pvt. Ltd., Mumbai</p>
+                    </div>
+
+                    <div class="experience-card">
+                        <h4>Mar 2022 - Sept 2024</h4>
+                        <p><strong>Software Engineer</strong></p>
+                        <p>LTIMindtree Limited, Pune</p>
+                    </div>
+
+                    <div class="experience-card" style="background: linear-gradient(135deg, #a8edea 0%, #ffbe0b 100%); border-left-color: #fb5607;">
+                        <h4>Oct 2024 - Present</h4>
+                        <p><strong>Senior Software Engineer</strong></p>
+                        <p>LTIMindtree Limited, Pune</p>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <h3 class="section-title mt-8">
+                    <span class="icon-decoration">⭐</span>
+                    SKILLS
+                </h3>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="skill-bubble">Java</div>
+                    <div class="skill-bubble">React</div>
+                    <div class="skill-bubble">Node.js</div>
+                    <div class="skill-bubble">MongoDB</div>
+                    <div class="skill-bubble">Spring Boot</div>
+                    <div class="skill-bubble">JavaScript</div>
+                    <div class="skill-bubble">MySQL</div>
+                    <div class="skill-bubble">Docker</div>
+                    <div class="skill-bubble">Git</div>
+                    <div class="skill-bubble">REST API</div>
+                    <div class="skill-bubble">HTML/CSS</div>
+                    <div class="skill-bubble">Firebase</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="doodle-section">
+                <h2 class="section-title">
+                    <span class="icon-decoration">🎨</span>
+                    MY PROJECTS
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="project-card">
+                        <img src="./img/elibrary.png" alt="E-Library" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 style="color: #ff006e; font-family: 'Fredoka One'; font-size: 1.1rem; margin-bottom: 0.5rem;">E-Library</h3>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">A comprehensive digital library platform for book management and sharing.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-xs bg-pink-200 text-pink-600 px-3 py-1 rounded-full">React</span>
+                                <span class="text-xs bg-green-200 text-green-600 px-3 py-1 rounded-full">Node.js</span>
+                                <span class="text-xs bg-blue-200 text-blue-600 px-3 py-1 rounded-full">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="./img/workoutBin.png" alt="Workout Bin" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 style="color: #ff006e; font-family: 'Fredoka One'; font-size: 1.1rem; margin-bottom: 0.5rem;">Workout Bin</h3>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">A fitness tracking application to manage workout routines.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-xs bg-pink-200 text-pink-600 px-3 py-1 rounded-full">React</span>
+                                <span class="text-xs bg-green-200 text-green-600 px-3 py-1 rounded-full">Firebase</span>
+                                <span class="text-xs bg-blue-200 text-blue-600 px-3 py-1 rounded-full">Tailwind</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="./img/botDetector.png" alt="Bot Detector" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 style="color: #ff006e; font-family: 'Fredoka One'; font-size: 1.1rem; margin-bottom: 0.5rem;">Bot Detector</h3>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">ML powered bot detection system for social media.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-xs bg-pink-200 text-pink-600 px-3 py-1 rounded-full">Python</span>
+                                <span class="text-xs bg-green-200 text-green-600 px-3 py-1 rounded-full">ML</span>
+                                <span class="text-xs bg-blue-200 text-blue-600 px-3 py-1 rounded-full">Flask</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="./img/tweetsLocator.png" alt="Tweets Locator" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 style="color: #ff006e; font-family: 'Fredoka One'; font-size: 1.1rem; margin-bottom: 0.5rem;">Tweets Locator</h3>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">Geo-location based tweet analysis platform.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-xs bg-pink-200 text-pink-600 px-3 py-1 rounded-full">React</span>
+                                <span class="text-xs bg-green-200 text-green-600 px-3 py-1 rounded-full">APIs</span>
+                                <span class="text-xs bg-blue-200 text-blue-600 px-3 py-1 rounded-full">Maps</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="https://github.com/prmane03" target="_blank" class="doodle-button">View More on GitHub →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="doodle-section">
+                <h2 class="section-title">
+                    <span class="icon-decoration">💬</span>
+                    GET IN TOUCH
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div class="contact-box">
+                        <i class="fas fa-envelope"></i>
+                        <h4 style="font-family: 'Fredoka One';">Email</h4>
+                        <a href="mailto:prmane03@gmail.com" style="color: white; text-decoration: underline;">prmane03@gmail.com</a>
+                    </div>
+
+                    <div class="contact-box">
+                        <i class="fas fa-phone"></i>
+                        <h4 style="font-family: 'Fredoka One';">Phone</h4>
+                        <a href="tel:+919876543210" style="color: white; text-decoration: underline;">+91 9876543210</a>
+                    </div>
+
+                    <div class="contact-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4 style="font-family: 'Fredoka One';">Location</h4>
+                        <p>India</p>
+                    </div>
+                </div>
+
+                <form id="contactForm" class="bg-white rounded-3xl p-6 border-3 border-dashed border-pink-300">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Your Name" required class="form-control md:col-span-1">
+                        <input type="email" placeholder="your@email.com" required class="form-control md:col-span-1">
+                    </div>
+                    <input type="text" placeholder="Subject" required class="form-control">
+                    <textarea placeholder="Tell me about your project..." rows="4" required class="form-control w-full"></textarea>
+                    <button type="submit" class="doodle-button w-full mt-4">Send Message</button>
+                </form>
+
+                <div class="text-center mt-8">
+                    <p style="color: #666; margin-bottom: 1rem; font-weight: 600;">Follow Me</p>
+                    <div class="flex justify-center">
+                        <a href="https://www.instagram.com/prmane03/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+                        </a>
+                        <a href="https://github.com/prmane03/" target="_blank" class="social-link">
+                            <i class="fab fa-github" style="font-size: 1.5rem;"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/prmane03/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin" style="font-size: 1.5rem;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 text-center">
+        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Keep Jumping! ⭐ 2024 Pratik Mane</p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Made with 💖 and lots of doodles</p>
+    </footer>
+
+    <script>
+        function scrollTo(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+            const navBox = document.getElementById('navBox');
+            if (navBox && !navBox.classList.contains('hidden')) {
+                navBox.classList.add('hidden');
+            }
+        }
+
+        function toggleMobileNav() {
+            const navBox = document.getElementById('navBox');
+            if (navBox) {
+                navBox.classList.toggle('hidden');
+                navBox.classList.toggle('block');
+            }
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thanks for your message! I will get back to you soon! 🎉');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
