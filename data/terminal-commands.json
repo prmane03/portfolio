@@ -1,0 +1,39 @@
+{
+  "help": {
+    "type": "text",
+    "response": "Available commands: about, skills, github, linkedin, projects, clear"
+  },
+
+  "about": {
+    "type": "text",
+    "response": "I'm Pratik Mane, Full Stack Developer from Pune."
+  },
+
+  "skills": {
+    "type": "text",
+    "response": "Java | Spring Boot | Angular | Kafka | PostgreSQL"
+  },
+
+  "projects": {
+    "type": "text",
+    "response": "E-Library | Workout Bin | Bot Detector"
+  },
+
+  "github": {
+    "type": "link",
+    "response": "Opening GitHub...",
+    "url": "https://github.com/prmane03"
+  },
+
+  "linkedin": {
+    "type": "link",
+    "response": "Opening LinkedIn...",
+    "url": "https://linkedin.com/in/prmane03"
+  },
+
+  "resume": {
+    "type": "link",
+    "response": "Opening Resume...",
+    "url": "https://drive.google.com/file/d/1vWWcFdvw1hBzNhuMYQ3Zg8G5QfTIlVy7/view"
+  }
+}

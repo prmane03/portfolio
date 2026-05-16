@@ -43,3 +43,98 @@ document.addEventListener("DOMContentLoaded", function () {
         footer.classList.add('inset-x-0');
     }
 });
+
+/* TERMINAL COMMANDS */
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const input = document.getElementById("terminalInput");
+    const terminalBody = document.getElementById("terminalBody");
+
+    let commands = {};
+
+    // LOAD COMMANDS JSON
+    try {
+
+        const response = await fetch("./data/terminal-commands.json");
+        commands = await response.json();
+
+    } catch (error) {
+
+        console.error("Failed to load terminal commands:", error);
+
+    }
+
+    input.addEventListener("keydown", function (e) {
+
+        if (e.key === "Enter") {
+
+            const value = input.value.trim().toLowerCase();
+
+            if (value === "") return;
+
+            // COMMAND LINE
+            const commandLine = document.createElement("div");
+
+            commandLine.className = "terminal-line";
+
+            commandLine.innerHTML = `
+                <span class="prompt">visitor@portfolio:~$</span>
+                <span class="command">${value}</span>
+            `;
+
+            terminalBody.insertBefore(commandLine, input.parentElement);
+
+            // CLEAR COMMAND
+            if (value === "clear") {
+
+                const lines = terminalBody.querySelectorAll(
+                    ".terminal-line, .terminal-response"
+                );
+
+                lines.forEach(line => {
+
+                    if (!line.contains(input)) {
+                        line.remove();
+                    }
+
+                });
+
+                input.value = "";
+                return;
+            }
+
+            // RESPONSE
+            const responseDiv = document.createElement("div");
+
+            responseDiv.className = "terminal-response";
+
+            const commandData = commands[value];
+
+            if (commandData) {
+
+                responseDiv.textContent = commandData.response;
+
+                // OPEN LINK TYPE
+                if (commandData.type === "link") {
+
+                    setTimeout(() => {
+                        window.open(commandData.url, "_blank");
+                    }, 500);
+
+                }
+
+            } else {
+
+                responseDiv.textContent =
+                    `command not found: ${value}`;
+
+            }
+
+            terminalBody.insertBefore(responseDiv, input.parentElement);
+
+            input.value = "";
+
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+    });
+});
